@@ -61,4 +61,24 @@ class BrandController extends Controller
             } 
         }
     }
+	public function sosLogic()
+    {
+		if(Input::get('appkey') == "1login") {
+			// create our user data for the authentication
+			$users = DB::table('users')
+						->where('email', '=', Input::get('username'))
+						->get();
+			if($users){
+				session(['brand_user' => Input::get('username')]);
+				session(['brand_pwd' => Input::get('password')]);
+				// load dashboard page
+				return Redirect::to('/post/create');  
+			}else{
+				return view('login')->withErrors('user not exist');
+			}
+		}
+		else{
+				return view('login')->withErrors('not a valid key');
+			}
+    }
 }

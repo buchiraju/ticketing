@@ -18,6 +18,9 @@ Route::get('/', function () {
 Route::post('/brand/login', [
     'uses' => 'BrandController@checkLogic'
 ]);
+Route::get('/ticket/soslogin/', [
+    'uses' => 'BrandController@sosLogic'
+]);
 
 Route::get('/post/create', [
     'uses' => 'PostController@create'
