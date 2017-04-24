@@ -13,6 +13,11 @@
           <ul class="nav navbar-nav">
             <li class="active"><a href="{{ URL::to('/') }}/">Home</a></li>            
           </ul>
+		  @if(Session::has('brand_user')))
+		  <ul class="nav navbar-nav pull-right">
+            <li><a href="{{ URL::to('/') }}/logout">Logout</a></li>
+          </ul>
+		  @endif
         </div><!--/.nav-collapse -->
       </div>
     </nav>

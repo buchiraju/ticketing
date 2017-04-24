@@ -29,3 +29,10 @@ Route::get('/post/create', [
 Route::post('/post/store', [
     'uses' => 'PostController@store'
 ]);
+Route::get('/logout', function() {
+ Session::flush();
+  if(!Session::has('username'))
+   {
+      return "signout";
+   }
+ });
